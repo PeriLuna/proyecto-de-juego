@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://b10brwhev65l4"]
+
+[ext_resource type="Script" uid="uid://cvwmuoqbitps5" path="res://script/loader_scene.gd" id="1_c4hxa"]
+[ext_resource type="PackedScene" uid="uid://coc1at1xjqifg" path="res://escenas/chat_ui.tscn" id="2_k644k"]
+[ext_resource type="Texture2D" uid="uid://lrg2kf3g3h8n" path="res://Arte/Fondos/Texto_del_parrafo.png" id="3_d4qsj"]
+[ext_resource type="PackedScene" uid="uid://bo14wvt7xls4v" path="res://escenas/world_dialogue_bubble.tscn" id="4_d4qsj"]
+
+[node name="LoaderScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_c4hxa")
+chat_ui_scene = ExtResource("2_k644k")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 645.0
+texture = ExtResource("3_d4qsj")
+
+[node name="IconoMSN" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 47.0
+offset_top = 221.0
+offset_right = 129.0
+offset_bottom = 312.0
+
+[node name="ChatWindow" type="Window" parent="."]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Chat de MSN"
+size = Vector2i(500, 600)
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="WorldDialogueBubble" parent="CanvasLayer" instance=ExtResource("4_d4qsj")]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[connection signal="close_requested" from="ChatWindow" to="." method="_on_chat_window_close_requested"]

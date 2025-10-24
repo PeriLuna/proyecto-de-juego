@@ -1,0 +1,13 @@
+# Archivo: world_dialogue.dialogue
+
+~ intro_juego
+Player: (Tengo que revisar qué pasó anoche...)
+
+~ mirar_ventana
+Narrador: El sol apenas empieza a salir. La calle está vacía.
+
+~ intentar_puerta_cerrada
+Player: (Está cerrada con llave. Necesito encontrarla.)
+
+~ encender_pc
+Player: Voy a encender la compu...

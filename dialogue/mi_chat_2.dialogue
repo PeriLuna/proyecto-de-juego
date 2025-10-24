@@ -1,0 +1,53 @@
+~ inicio
+
+Avery: Hola, ¿cómo va todo?
+
+# Primer turno del jugador con opciones
+- Todo bien, ¿y vos?
+	Player: Todo bien, ¿y vos?
+	Avery: Todo tranquilo por acá, probando este sistema de diálogo.
+	-> test_chat
+- Más o menos, me está costando entender cómo funciona esto.
+	Player: Más o menos, me está costando entender cómo funciona esto.
+	Avery: No te preocupes, ahora te explico cómo va.
+	-> explicacion
+
+~ test_chat
+
+Avery: Entonces, parece que funciona bien.
+
+- Sí, se ve que todo anda perfecto.
+	Player: Sí, se ve que todo anda perfecto.
+	Avery: Genial, ¡entonces podemos seguir probando!
+- No estoy tan seguro, ¿podemos probar otra cosa?
+	Player: No estoy tan seguro, ¿podemos probar otra cosa?
+	Avery: Claro, dame un segundo.
+	-> opciones_extra
+
+~ explicacion
+
+Avery: Este sistema te deja hablar conmigo y elegir respuestas.
+Avery: Básicamente, cada vez que vos hables, te voy a dar opciones.
+
+- Perfecto, me gusta cómo suena.
+	Player: Perfecto, me gusta cómo suena.
+	Avery: Me alegra, la idea es hacerlo interactivo.
+- Me suena complicado, ¿hay ejemplos?
+	Player: Me suena complicado, ¿hay ejemplos?
+	Avery: Sí, mirá este ejemplo.
+	-> test_chat
+
+~ opciones_extra
+
+Avery: Probemos algo distinto, ¿qué te gustaría hacer?
+
+- Repetir la conversación
+	Player: Quiero repetir la conversación.
+	Avery: Perfecto, volvamos al inicio.
+	-> inicio
+- Terminar por ahora
+	Player: Prefiero dejarlo acá.
+	Avery: Está bien, nos vemos después.
+	-> end
+
+~ end

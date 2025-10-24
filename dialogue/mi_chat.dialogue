@@ -1,0 +1,115 @@
+# Archivo de diálogo: Charla casual con Vanessa (Sintaxis =>)
+
+~ inicio
+
+Vanessa: ¡Eu! ¿Todo bien? ¿Qué onda?
+
+# Primer turno del jugador con opciones
+- ¡Todo joya! ¿Vos?
+	Player: ¡Todo joya! ¿Vos qué contás?
+	Vanessa: Acá ando, tranqui. Pensando qué hacer hoy... ¿vos tenés planes?
+	=> planes_hoy
+- Más o menos, medio colgado/a hoy.
+	Player: Más o menos, medio colgado/a hoy.
+	Vanessa: Uuh, ¿qué pasó? ¿Todo en orden?
+	=> todo_en_orden
+
+# --- Rama: Si todo estaba bien ---
+~ planes_hoy
+
+Player: Mmm, no sé todavía. ¿Tenías algo en mente?
+
+- Podríamos juntarnos a tomar algo.
+    Player: Podríamos juntarnos a tomar algo, ¿te va?
+    Vanessa: ¡De una! ¿Tipo ahora o más tarde?
+    => organizar_juntada
+- Ni idea, pero seguro algo pinta.
+    Player: Ni idea, pero seguro algo pinta.
+    Vanessa: Jaja, esa es la actitud. Bueno, si se te ocurre algo, chiflame.
+    => despedida_abierta
+
+# --- Rama: Si estabas colgado/a ---
+~ todo_en_orden
+
+Player: Nah, nada grave, solo un día medio tonto.
+
+- Sí, tranqui. ¿Vos qué onda? ¿Planes?
+    Player: Sí, tranqui. ¿Vos qué onda? ¿Planes?
+    Vanessa: Ah, bueno, menos mal. Yo tranqui también, viendo qué pintar.
+    => planes_hoy_despues_duda
+- ¿Te puedo contar? Necesito descargar un poco.
+    Player: ¿Te puedo contar? Necesito descargar un poco.
+    Vanessa: ¡Obvio! Dale, contame, para eso estamos los amigos.
+    => descarga_emocional
+
+# --- Sub-ramas y opciones finales ---
+
+~ organizar_juntada
+
+Player: ¿Ahora o más tarde? Mmm...
+
+- ¡Ya fue, ahora!
+    Player: ¡Ya fue, ahora! ¿Dónde nos vemos?
+    Vanessa: ¡Listo! Mandame dire por privado y salgo.
+    => END
+- Mejor más tarde, tipo a la noche.
+    Player: Mejor más tarde, tipo a la noche. ¿Te escribo después?
+    Vanessa: Dale, perfecto. Hablamos más tarde entonces. ¡Cuidate!
+    => END
+
+~ despedida_abierta
+
+Vanessa: Dale, hablamos entonces.
+
+- ¡Nos vemos!
+    Player: ¡Nos vemos!
+    Vanessa: ¡Chau!
+    => END
+- Ojo, si no te escribo, ¡escribime vos!
+    Player: Ojo, si no te escribo, ¡escribime vos!
+    Vanessa: Jaja, ¡trato hecho! Cuidate.
+    => END
+
+~ planes_hoy_despues_duda
+
+Vanessa: ¿Vos tenés algo en mente o flasheamos algo?
+
+- Podríamos juntarnos igual, me vendría bien distraerme.
+    Player: Podríamos juntarnos igual, me vendría bien distraerme.
+    Vanessa: ¡Obvio! ¿Ahora o más tarde?
+    => organizar_juntada
+- La verdad, hoy prefiero quedarme tranqui en casa.
+    Player: La verdad, hoy prefiero quedarme tranqui en casa.
+    Vanessa: De una, te entiendo. Descansá entonces. Cualquier cosa, hablame.
+    => END
+
+~ descarga_emocional
+
+Vanessa: (Escucha atentamente mientras el jugador "cuenta" - implícito)
+Vanessa: Uh, qué garrón... Pero tranqui, va a pasar.
+
+- Gracias por escuchar, posta.
+    Player: Gracias por escuchar, posta. Me siento mejor.
+    Vanessa: ¡De nada! Para eso estamos. ¿Querés hacer algo para distraerte o preferís estar solo/a?
+    - Distraerme
+        Player: Sí, me vendría bien distraerme.
+        Vanessa: ¡Perfecto! ¿Salimos ahora o más tarde?
+        => organizar_juntada
+    - Estar solo/a
+        Player: No, gracias, creo que prefiero estar solo/a un rato.
+        Vanessa: Entendido. Cuidate mucho y cualquier cosa me escribís, ¿dale?
+        => END
+- La verdad que sí, es un bajón.
+    Player: La verdad que sí, es un bajón.
+    Vanessa: Mal... bueno, mirá, si necesitás algo o querés hablar más, chiflame nomás. No cuelgues.
+    - Gracias, lo voy a tener en cuenta.
+        Player: Gracias, lo voy a tener en cuenta.
+        Vanessa: ¡Dale! Hablamos.
+        => END
+    - ¿Hacemos algo ahora para despejar?
+        Player: ¿Hacemos algo ahora para despejar?
+        Vanessa: ¡Sí! ¿Qué tenés ganas de hacer? ¿Salimos ya?
+        => organizar_juntada
+
+# No necesitamos ~ end si usamos => END
+# La conversación termina

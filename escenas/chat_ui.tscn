@@ -1,0 +1,110 @@
+[gd_scene load_steps=10 format=3 uid="uid://coc1at1xjqifg"]
+
+[ext_resource type="Script" uid="uid://dg7r1iqdmm05y" path="res://script/chat_ui.gd" id="1_5w0j4"]
+[ext_resource type="PackedScene" uid="uid://dteyo0ijvjry8" path="res://escenas/chat_bubble.tscn" id="2_kpmfs"]
+[ext_resource type="Texture2D" uid="uid://cv03p4j6wo385" path="res://Arte/Sprite/vanessa.png" id="3_p70t1"]
+[ext_resource type="Texture2D" uid="uid://dqgx4rldrlq04" path="res://Arte/Sprite/avery.png" id="4_ooh05"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpmfs"]
+bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qen0g"]
+bg_color = Color(0.70380783, 0.70380783, 0.70380783, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p70t1"]
+bg_color = Color(0.28235295, 0.3372549, 0.48235294, 1)
+
+[sub_resource type="Theme" id="Theme_ooh05"]
+Button/colors/icon_normal_color = Color(0.16206557, 0.1620656, 0.16206557, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_p70t1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ooh05"]
+bg_color = Color(0.6, 0.6, 0.6, 0.34901962)
+
+[node name="ChatUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5w0j4")
+chat_bubble_scene = ExtResource("2_kpmfs")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sidebar" type="PanelContainer" parent="HSplitContainer"]
+layout_mode = 2
+
+[node name="IconList" type="VBoxContainer" parent="HSplitContainer/Sidebar"]
+layout_mode = 2
+
+[node name="vanessa" type="TextureButton" parent="HSplitContainer/Sidebar/IconList"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("3_p70t1")
+texture_pressed = ExtResource("3_p70t1")
+texture_hover = ExtResource("3_p70t1")
+texture_disabled = ExtResource("3_p70t1")
+
+[node name="avery" type="TextureButton" parent="HSplitContainer/Sidebar/IconList"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("4_ooh05")
+texture_pressed = ExtResource("4_ooh05")
+texture_hover = ExtResource("4_ooh05")
+
+[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kpmfs")
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qen0g")
+horizontal_scroll_mode = 0
+
+[node name="ChatHistory" type="VBoxContainer" parent="HSplitContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Spacer" type="Control" parent="HSplitContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ChatHistory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OptionsContainer" type="VBoxContainer" parent="HSplitContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_ooh05")
+
+[node name="InputArea" type="HSplitContainer" parent="HSplitContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextInput" type="LineEdit" parent="HSplitContainer/PanelContainer/MarginContainer/VBoxContainer/InputArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Escribe tu mensaje aquí..."
+editable = false
+
+[node name="SendButton" type="Button" parent="HSplitContainer/PanelContainer/MarginContainer/VBoxContainer/InputArea"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ooh05")
+text = "Enviar"

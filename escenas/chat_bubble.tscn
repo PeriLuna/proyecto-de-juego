@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dteyo0ijvjry8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6vm4"]
+bg_color = Color(0.4568162, 0.5908522, 0.9054392, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndbnd"]
+bg_color = Color(0.033853278, 0.033853278, 0.033853274, 0.53333336)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="ChatBubble" type="VBoxContainer"]
+offset_right = 300.0
+offset_bottom = 56.0
+size_flags_horizontal = 4
+
+[node name="NamePanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d6vm4")
+
+[node name="NameLabel" type="Label" parent="NamePanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+autowrap_mode = 2
+
+[node name="BubblePanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ndbnd")
+
+[node name="DialogueLabel" type="Label" parent="BubblePanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+autowrap_mode = 2

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dqg8ytdetdfe5"
+path="res://.godot/imported/mi_chat.dialogue-963498ce536616e8f7197de23155ea90.tres"
+
+[deps]
+
+source_file="res://dialogue/mi_chat.dialogue"
+dest_files=["res://.godot/imported/mi_chat.dialogue-963498ce536616e8f7197de23155ea90.tres"]
+
+[params]
+
+defaults=true
