@@ -1,0 +1,14 @@
+# Archivo: res://dialoge/cinematic_dialogue.dialogue
+
+~ inicio_cinematica
+
+Player: (Revisando... todo parece normal.)
+Player: (Espera... ¿qué es eso?)
+Player: (Ares... no recuerdo haberlo instalado.)
+Narrador: [ACCION_MOSTRAR_ARES]
+# El script se PAUSARÁ en la línea de arriba hasta que la descarga termine.
+# Por eso, el texto siguiente aparecerá DESPUÉS de la descarga.
+Player: (¿Eh? ¿Se acaba de descargar algo?)
+Narrador: [ACCION_SONIDO_MENSAJE]
+Player: (¿Un mensaje? Justo ahora...)
+=> END

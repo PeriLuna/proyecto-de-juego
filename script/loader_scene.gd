@@ -4,9 +4,12 @@ extends Control
 @onready var icono_msn: TextureButton = %IconoMSN
 @onready var chat_window: Window = %ChatWindow
 @onready var world_dialogue_bubble = %WorldDialogueBubble
+@onready var login_screen: TextureRect = %LoginScreen
 
 var world_dialogue_resource = preload("res://dialogue/world_dialogue.dialogue")
-
+var tex_login_4 = preload("res://Arte/Fondos/4.png")
+var tex_login_5 = preload("res://Arte/Fondos/5.png")
+var tex_login_6 = preload("res://Arte/Fondos/6.png")
 # Guardamos la instancia del chat (si necesitas pausarla en el futuro)
 var chat_instance: Control
 
@@ -27,14 +30,51 @@ func _ready():
 
 
 # --- Función llamada al presionar el icono MSN ---
+# --- Función llamada al presionar el icono MSN ---
 func _on_icono_msn_pressed():
-	# 1. MUESTRA EL PENSAMIENTO PRIMERO
+	
+	# Si la ventana de chat ya está visible, no hacemos nada
+	if chat_window.visible:
+		return
+	
+	# Si el globo de pensamiento está visible, no hacemos nada
+	if world_dialogue_bubble.is_showing:
+		return
+	
+	# Muestra el pensamiento "Voy a encender la compu..."
 	trigger_thought("encender_pc")
-	# 2. ESPERA UN POCO
+	
+	# --- INICIO DE LA SECUENCIA ---
+	# Espera 2 segundos a que se lea el pensamiento
 	await get_tree().create_timer(2.0).timeout
-	# 3. ABRE LA VENTANA DEL CHAT DESPUÉS
+	
+	# 1. Muestra la imagen 4
+	print("Mostrando imagen 4")
+	login_screen.texture = tex_login_4
+	login_screen.show()
+	
+	# Espera 2 segundos
+	await get_tree().create_timer(2.0).timeout
+	
+	# 2. Muestra la imagen 5
+	print("Mostrando imagen 5")
+	login_screen.texture = tex_login_5
+	
+	# Espera 1 segundo
+	await get_tree().create_timer(4.0).timeout
+	
+	# 3. Muestra la imagen 6
+	print("Mostrando imagen 6")
+	login_screen.texture = tex_login_6
+	
+	# Espera 1 segundo
+	await get_tree().create_timer(2.0).timeout
+	
+	# 4. Oculta la secuencia y abre el chat
+	print("Abriendo ChatWindow")
+	login_screen.hide()
 	chat_window.popup_centered()
-	# --- FIN INTEGRACIÓN ---
+	# --- FIN DE LA SECUENCIA ---
 
 func _on_chat_window_close_requested():
 	chat_window.hide()

@@ -23,10 +23,15 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 runtime/balloon_path="res://escenas/balloon.tscn"
 
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/mi_chat.dialogue", "res://dialogue/mi_chat_2.dialogue", "res://dialogue/world_dialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/mi_chat.dialogue", "res://dialogue/mi_chat_2.dialogue", "res://dialogue/world_dialogue.dialogue", "res://dialogue/cinematic_dialogue.dialogue")

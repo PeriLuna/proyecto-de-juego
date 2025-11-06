@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://ciuqq6br5uylx"]
+
+[ext_resource type="Script" uid="uid://yblq680ee4ql" path="res://script/CinematicScene.gd" id="1_70610"]
+[ext_resource type="Texture2D" uid="uid://lrg2kf3g3h8n" path="res://Arte/Fondos/Texto_del_parrafo.png" id="2_u66j8"]
+[ext_resource type="Texture2D" uid="uid://cnumnhtldvksb" path="res://Arte/Fondos/Descargar_Ares.jpg" id="3_xndqn"]
+[ext_resource type="AudioStream" uid="uid://dlaljmt7te108" path="res://Arte/Sonidos/MSN Messenger sound.mp3" id="4_unmnw"]
+[ext_resource type="PackedScene" uid="uid://bo14wvt7xls4v" path="res://escenas/world_dialogue_bubble.tscn" id="5_xxbit"]
+
+[sub_resource type="Gradient" id="Gradient_70610"]
+offsets = PackedFloat32Array(0, 0.99038464)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u66j8"]
+gradient = SubResource("Gradient_70610")
+width = 80
+height = 15
+
+[sub_resource type="Gradient" id="Gradient_xndqn"]
+offsets = PackedFloat32Array(0, 0.50961536, 1)
+colors = PackedColorArray(0, 0.6, 0.019607844, 1, 1.2754649e-06, 0.6010266, 0.019419603, 1, 0, 0.6, 0.019607844, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_unmnw"]
+gradient = SubResource("Gradient_xndqn")
+width = 80
+height = 15
+
+[node name="CinematicScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_70610")
+
+[node name="Fondo" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+texture = ExtResource("2_u66j8")
+
+[node name="AresWindow" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 129.0
+offset_top = 7.0
+offset_right = 673.0
+offset_bottom = 425.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_xndqn")
+expand_mode = 1
+
+[node name="DownloadBar" type="TextureProgressBar" parent="AresWindow"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 0
+offset_left = 371.0
+offset_top = 230.0
+offset_right = 532.0
+offset_bottom = 260.0
+texture_under = SubResource("GradientTexture2D_u66j8")
+texture_progress = SubResource("GradientTexture2D_unmnw")
+
+[node name="MessageSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_unmnw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 10
+
+[node name="WorldDialogueBubble" parent="CanvasLayer" instance=ExtResource("5_xxbit")]
+unique_name_in_owner = true
+offset_top = 537.0
+offset_right = 300.0
+offset_bottom = 560.0
