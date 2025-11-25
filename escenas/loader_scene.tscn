@@ -1,9 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://b10brwhev65l4"]
+[gd_scene load_steps=19 format=3 uid="uid://b10brwhev65l4"]
 
 [ext_resource type="Script" uid="uid://cvwmuoqbitps5" path="res://script/loader_scene.gd" id="1_c4hxa"]
 [ext_resource type="PackedScene" uid="uid://coc1at1xjqifg" path="res://escenas/chat_ui.tscn" id="2_k644k"]
-[ext_resource type="Texture2D" uid="uid://bfb7335gmpq8b" path="res://Arte/Fondos/Fondo.png" id="3_d4qsj"]
+[ext_resource type="Texture2D" uid="uid://coy84q3wia2vi" path="res://Arte/iconos/FONDO.jpg" id="3_lv00w"]
 [ext_resource type="PackedScene" uid="uid://bo14wvt7xls4v" path="res://escenas/world_dialogue_bubble.tscn" id="4_d4qsj"]
+[ext_resource type="Texture2D" uid="uid://wuf0mysv2vvl" path="res://Arte/iconos/FOLDER.png" id="4_dwbdf"]
+[ext_resource type="AudioStream" uid="uid://c4eldb8k0hghg" path="res://Arte/Sonidos/Windows XP.mp3" id="5_4upcx"]
+[ext_resource type="Texture2D" uid="uid://cgbo2bm38rjsf" path="res://Arte/iconos/MSM.png" id="5_irdaa"]
+[ext_resource type="Texture2D" uid="uid://s3ajouq86np" path="res://Arte/iconos/MUSIC.png" id="6_syaiv"]
+[ext_resource type="Texture2D" uid="uid://bkr6a8i60jykc" path="res://Arte/iconos/PAPELERA.png" id="7_6eokm"]
+[ext_resource type="Texture2D" uid="uid://chlk52j0nd6wn" path="res://Arte/iconos/EXPLORER.png" id="8_pm60f"]
+[ext_resource type="Texture2D" uid="uid://ba1cwipodcvce" path="res://Arte/iconos/BARRA.png" id="9_u3hhq"]
+[ext_resource type="Shader" uid="uid://5e06jf22q5j6" path="res://script/texture_rect.gdshader" id="12_ausii"]
+[ext_resource type="Texture2D" uid="uid://b3aqfpsx4ai4s" path="res://Arte/iconos/Texto_del_parrafo.png" id="12_dwbdf"]
+[ext_resource type="AudioStream" uid="uid://dlaljmt7te108" path="res://Arte/Sonidos/MSN Messenger sound.mp3" id="13_irdaa"]
+
+[sub_resource type="Animation" id="Animation_sbf0q"]
+resource_name = "EncendidoPC"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SoundPlayer:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_4upcx")]
+}
+
+[sub_resource type="Animation" id="Animation_0owd4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SoundPlayer:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_4upcx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bgcm8"]
+_data = {
+&"EncendidoPC": SubResource("Animation_sbf0q"),
+&"RESET": SubResource("Animation_0owd4")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vyrar"]
+shader = ExtResource("12_ausii")
+shader_parameter/intensity = 0.5
 
 [node name="LoaderScene" type="Control"]
 layout_mode = 3
@@ -14,20 +65,88 @@ script = ExtResource("1_c4hxa")
 chat_ui_scene = ExtResource("2_k644k")
 
 [node name="Fondo" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 800.0
-offset_bottom = 600.0
-texture = ExtResource("3_d4qsj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1112.0
+offset_bottom = 607.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_lv00w")
 metadata/_edit_lock_ = true
 
-[node name="IconoMSN" type="TextureButton" parent="."]
+[node name="FOLDER" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 16.0
+offset_right = 1088.0
+offset_bottom = 1040.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("4_dwbdf")
+
+[node name="MSN" type="TextureButton" parent="Fondo"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 32.0
-offset_top = 214.0
-offset_right = 92.0
-offset_bottom = 282.0
-metadata/_edit_lock_ = true
+offset_left = 9.000008
+offset_top = 128.0
+offset_right = 1033.0
+offset_bottom = 1152.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_irdaa")
+texture_pressed = ExtResource("5_irdaa")
+texture_hover = ExtResource("5_irdaa")
+texture_disabled = ExtResource("5_irdaa")
+texture_focused = ExtResource("5_irdaa")
+
+[node name="MUSIC" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 67.0
+offset_right = 1032.0
+offset_bottom = 1091.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("6_syaiv")
+
+[node name="PAPELERA" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 15.0
+offset_right = 1032.0
+offset_bottom = 1039.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("7_6eokm")
+
+[node name="EXPLORER" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 185.0
+offset_right = 1034.0
+offset_bottom = 1209.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("8_pm60f")
+
+[node name="BARRA" type="TextureRect" parent="Fondo"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -37.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("9_u3hhq")
 
 [node name="ChatWindow" type="Window" parent="."]
 unique_name_in_owner = true
@@ -35,27 +154,80 @@ oversampling_override = 1.0
 title = "Chat de MSN"
 position = Vector2i(0, 36)
 size = Vector2i(750, 450)
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 layer = 10
 
 [node name="WorldDialogueBubble" parent="CanvasLayer" instance=ExtResource("4_d4qsj")]
 unique_name_in_owner = true
-anchors_preset = 2
+custom_minimum_size = Vector2(300, 100)
+anchors_preset = 12
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -84.0
-offset_right = 300.0
-offset_bottom = -44.0
+offset_top = -27.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_4upcx")
+
+[node name="IntroPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_bgcm8")
+}
+
+[node name="Noti" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = 921.0
+offset_top = 401.0
+offset_right = 1148.0
+offset_bottom = 545.0
+texture = ExtResource("12_dwbdf")
+expand_mode = 1
+
+[node name="Timer" type="Timer" parent="Noti"]
+wait_time = 2.0
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Noti"]
+stream = ExtResource("13_irdaa")
+
+[node name="Shader" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Shader"]
+material = SubResource("ShaderMaterial_vyrar")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="LoginScreen" type="TextureRect" parent="."]
 unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_left = 263.0
-offset_top = 172.0
-offset_right = 516.0
-offset_bottom = 402.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 549.0
+offset_top = 293.0
+offset_right = 549.0
+offset_bottom = 293.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 
 [connection signal="close_requested" from="ChatWindow" to="." method="_on_chat_window_close_requested"]

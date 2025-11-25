@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://d28hidgn440wi"]
+
+[ext_resource type="Script" uid="uid://bakygo0b60hqr" path="res://script/control.gd" id="1_kbped"]
+[ext_resource type="PackedScene" uid="uid://c5rbigd4edunp" path="res://escenas/intro_scene.tscn" id="2_ge6vf"]
+[ext_resource type="VideoStream" uid="uid://prr72fxlhd12" path="res://assets/video_1080p.ogv" id="2_kbped"]
+[ext_resource type="FontFile" uid="uid://corkiu5g4nqgq" path="res://connection_ii/ConnectionII.otf" id="5_fj5cn"]
+[ext_resource type="VideoStream" uid="uid://baf4g8px655ln" path="res://assets/secuencia_salida.ogv" id="5_sky72"]
+[ext_resource type="AudioStream" uid="uid://iy6u7kytwlpk" path="res://Arte/Sonidos/version Cyberpunk chill.wav" id="6_qqb0l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
+bg_color = Color(0, 0, 0, 0.3647059)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kbped")
+game_scene = ExtResource("2_ge6vf")
+
+[node name="BackgroundVideo" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -21.0
+offset_right = 1131.0
+offset_bottom = 629.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stream = ExtResource("2_kbped")
+volume_db = -30.23
+autoplay = true
+expand = true
+loop = true
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 133.0
+offset_right = 789.0
+offset_bottom = 210.0
+theme_override_fonts/normal_font = ExtResource("5_fj5cn")
+theme_override_font_sizes/normal_font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_ee4bf")
+text = "*Typing...*"
+
+[node name="ButtonsContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 375.0
+offset_right = 418.0
+offset_bottom = 583.0
+
+[node name="VBoxButtons" type="VBoxContainer" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="ButtonsContainer/VBoxButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_fj5cn")
+theme_override_font_sizes/font_size = 25
+text = "PLAY"
+
+[node name="ExitButton" type="Button" parent="ButtonsContainer/VBoxButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_fj5cn")
+theme_override_font_sizes/font_size = 25
+text = "EXIT"
+
+[node name="ExitSequenceVideo" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 1152.0
+offset_bottom = 649.0
+mouse_filter = 2
+stream = ExtResource("5_sky72")
+expand = true
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qqb0l")
+autoplay = true
+
+[connection signal="pressed" from="ButtonsContainer/VBoxButtons/PlayButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/VBoxButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/VBoxButtons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="finished" from="ExitSequenceVideo" to="." method="_on_exit_sequence_video_finished"]

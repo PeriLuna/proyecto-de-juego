@@ -4,6 +4,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fngf"]
 bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.8235294)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -11,7 +16,7 @@ corner_radius_bottom_left = 10
 
 [node name="WorldDialogueBubble" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 0)
-offset_right = 40.0
+offset_right = 300.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4fngf")
 script = ExtResource("1_s1nkd")
@@ -24,4 +29,3 @@ autowrap_mode = 2
 
 [node name="DisplayTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-one_shot = true

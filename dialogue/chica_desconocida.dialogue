@@ -4,7 +4,7 @@
 
 # (Intro cinemática sucede antes)
 
-ChicaDesconocida_92: Hola...
+ChicaDesconocida_92: Hola... te acordas de mi?
 ChicaDesconocida_92: Hacía mucho que no te veía conectado a estas horas.
 ChicaDesconocida_92: ¿Te acordás de mí?
 
@@ -149,10 +149,12 @@ ChicaDesconocida_92: Y no voy a dejar que te vayas de nuevo.
 	ChicaDesconocida_92: ¿Bloquearme? Jaja.
 	ChicaDesconocida_92: Es muy tarde para eso.
 	ChicaDesconocida_92: Ya estoy ahí con vos.
+	Narrador: [GAME_OVER_GLITCH]
 	=> END
 - Perdoname por lo que te hice.
 	Player: No sé quién sos, pero perdoname por lo que te hice.
 	ChicaDesconocida_92: ¿Perdón?
 	ChicaDesconocida_92: Es muy tarde para pedir disculpas.
 	ChicaDesconocida_92: Ahora vas a pagar.
+	Narrador: [GAME_OVER_GLITCH]
 	=> END

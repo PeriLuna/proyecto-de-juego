@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://ob8iiscylyap"]
+
+[ext_resource type="Texture2D" uid="uid://coy84q3wia2vi" path="res://Arte/iconos/FONDO.jpg" id="1_38x8k"]
+[ext_resource type="Texture2D" uid="uid://ba1cwipodcvce" path="res://Arte/iconos/BARRA.png" id="2_n63y3"]
+[ext_resource type="Texture2D" uid="uid://cgbo2bm38rjsf" path="res://Arte/iconos/MSM.png" id="3_l6hvb"]
+[ext_resource type="Texture2D" uid="uid://s3ajouq86np" path="res://Arte/iconos/MUSIC.png" id="4_dew7j"]
+[ext_resource type="Texture2D" uid="uid://chlk52j0nd6wn" path="res://Arte/iconos/EXPLORER.png" id="5_cxnlo"]
+[ext_resource type="Texture2D" uid="uid://bkr6a8i60jykc" path="res://Arte/iconos/PAPELERA.png" id="6_axhtv"]
+[ext_resource type="Texture2D" uid="uid://wuf0mysv2vvl" path="res://Arte/iconos/FOLDER.png" id="7_rb6jy"]
+[ext_resource type="Shader" uid="uid://5e06jf22q5j6" path="res://script/texture_rect.gdshader" id="8_n63y3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l6hvb"]
+shader = ExtResource("8_n63y3")
+
+[node name="Fondo" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_38x8k")
+
+[node name="Barra" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_n63y3")
+
+[node name="MSM" type="TextureButton" parent="Barra"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -474.0
+offset_right = 1040.0
+offset_bottom = 550.0
+scale = Vector2(0.04000023, 0.050850365)
+texture_normal = ExtResource("3_l6hvb")
+
+[node name="Music" type="TextureButton" parent="Barra"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = -410.0
+offset_right = 1039.0
+offset_bottom = 614.0
+scale = Vector2(0.04000023, 0.050850365)
+texture_normal = ExtResource("4_dew7j")
+
+[node name="Explorer" type="TextureButton" parent="Barra"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -344.0
+offset_right = 1040.0
+offset_bottom = 680.0
+scale = Vector2(0.04000023, 0.050850365)
+texture_normal = ExtResource("5_cxnlo")
+
+[node name="Papelera" type="TextureButton" parent="Barra"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = -544.0
+offset_right = 1091.0
+offset_bottom = 480.0
+scale = Vector2(0.04000023, 0.050850365)
+texture_normal = ExtResource("6_axhtv")
+
+[node name="Folder" type="TextureButton" parent="Barra"]
+layout_mode = 0
+offset_left = 13.000001
+offset_top = -542.0
+offset_right = 1037.0
+offset_bottom = 482.0
+scale = Vector2(0.04000023, 0.050850365)
+texture_normal = ExtResource("7_rb6jy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_l6hvb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

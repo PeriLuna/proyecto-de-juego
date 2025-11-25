@@ -1,14 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dteyo0ijvjry8"]
+[gd_scene load_steps=4 format=3 uid="uid://dteyo0ijvjry8"]
+
+[ext_resource type="FontFile" uid="uid://corkiu5g4nqgq" path="res://connection_ii/ConnectionII.otf" id="1_d6vm4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6vm4"]
 bg_color = Color(0.4568162, 0.5908522, 0.9054392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+expand_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndbnd"]
-bg_color = Color(0.033853278, 0.033853278, 0.033853274, 0.53333336)
+bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.8235294)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -20,21 +28,29 @@ offset_bottom = 56.0
 size_flags_horizontal = 4
 
 [node name="NamePanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d6vm4")
 
 [node name="NameLabel" type="Label" parent="NamePanel"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_d6vm4")
+theme_override_font_sizes/font_size = 20
 autowrap_mode = 2
 
 [node name="BubblePanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ndbnd")
 
 [node name="DialogueLabel" type="Label" parent="BubblePanel"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_d6vm4")
+theme_override_font_sizes/font_size = 20
 autowrap_mode = 2

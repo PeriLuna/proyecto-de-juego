@@ -1,14 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://coc1at1xjqifg"]
+[gd_scene load_steps=12 format=3 uid="uid://coc1at1xjqifg"]
 
 [ext_resource type="Script" uid="uid://dg7r1iqdmm05y" path="res://script/chat_ui.gd" id="1_5w0j4"]
 [ext_resource type="PackedScene" uid="uid://dteyo0ijvjry8" path="res://escenas/chat_bubble.tscn" id="2_kpmfs"]
 [ext_resource type="Texture2D" uid="uid://dc3og0jbk2g2o" path="res://Arte/Fondos/msn_contact_list.png" id="3_ooh05"]
+[ext_resource type="FontFile" uid="uid://corkiu5g4nqgq" path="res://connection_ii/ConnectionII.otf" id="4_ooh05"]
+[ext_resource type="Shader" uid="uid://5e06jf22q5j6" path="res://script/texture_rect.gdshader" id="4_p70t1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpmfs"]
 bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qen0g"]
-bg_color = Color(0.70380783, 0.70380783, 0.70380783, 1)
+bg_color = Color(0.73824173, 0.801287, 0.97605556, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p70t1"]
 bg_color = Color(0.28235295, 0.3372549, 0.48235294, 1)
@@ -19,6 +26,10 @@ Button/styles/normal = SubResource("StyleBoxFlat_p70t1")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ooh05"]
 bg_color = Color(0.6, 0.6, 0.6, 0.34901962)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ooh05"]
+shader = ExtResource("4_p70t1")
+shader_parameter/intensity = 0.5
 
 [node name="ChatUI" type="Control"]
 layout_mode = 3
@@ -51,6 +62,7 @@ offset_left = 35.0
 offset_top = 223.0
 offset_right = 211.0
 offset_bottom = 266.0
+mouse_filter = 2
 
 [node name="vanessa" type="TextureButton" parent="HSplitContainer/Sidebar"]
 unique_name_in_owner = true
@@ -59,6 +71,7 @@ offset_left = 33.0
 offset_top = 302.0
 offset_right = 206.0
 offset_bottom = 342.0
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="HSplitContainer"]
 layout_mode = 2
@@ -99,13 +112,27 @@ theme = SubResource("Theme_ooh05")
 layout_mode = 2
 
 [node name="TextInput" type="LineEdit" parent="HSplitContainer/PanelContainer/MarginContainer/VBoxContainer/InputArea"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_ooh05")
 placeholder_text = "Escribe tu mensaje aquí..."
 editable = false
 
 [node name="SendButton" type="Button" parent="HSplitContainer/PanelContainer/MarginContainer/VBoxContainer/InputArea"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ooh05")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ooh05")
 text = "Enviar"
+
+[node name="Shader" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Shader"]
+material = SubResource("ShaderMaterial_ooh05")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

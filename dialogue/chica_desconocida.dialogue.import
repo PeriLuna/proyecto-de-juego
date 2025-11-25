@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cg54o8exnfycy"
+path="res://.godot/imported/chica_desconocida.dialogue-f914e815bfe5124dd2285a07417db3c3.tres"
+
+[deps]
+
+source_file="res://dialogue/chica_desconocida.dialogue"
+dest_files=["res://.godot/imported/chica_desconocida.dialogue-f914e815bfe5124dd2285a07417db3c3.tres"]
+
+[params]
+
+defaults=true

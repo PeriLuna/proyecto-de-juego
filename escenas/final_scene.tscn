@@ -1,0 +1,140 @@
+[gd_scene load_steps=13 format=3 uid="uid://dehos1jtencw6"]
+
+[ext_resource type="Script" uid="uid://d05w0opctydyl" path="res://script/final_scene.gd" id="1_dedjb"]
+[ext_resource type="Shader" uid="uid://ckcw4ttw0b6xw" path="res://script/intro_scene.gdshader" id="1_mtgok"]
+[ext_resource type="Texture2D" uid="uid://coy84q3wia2vi" path="res://Arte/iconos/FONDO.jpg" id="2_5jo0d"]
+[ext_resource type="AudioStream" uid="uid://cfa6yg6nhx28l" path="res://Arte/Sonidos/Glitch.mp3" id="2_dedjb"]
+[ext_resource type="Texture2D" uid="uid://wuf0mysv2vvl" path="res://Arte/iconos/FOLDER.png" id="3_gry6x"]
+[ext_resource type="VideoStream" uid="uid://baf4g8px655ln" path="res://assets/secuencia_salida.ogv" id="3_l2qok"]
+[ext_resource type="Texture2D" uid="uid://cgbo2bm38rjsf" path="res://Arte/iconos/MSM.png" id="4_4rpxs"]
+[ext_resource type="Texture2D" uid="uid://s3ajouq86np" path="res://Arte/iconos/MUSIC.png" id="5_r1ixm"]
+[ext_resource type="Texture2D" uid="uid://bkr6a8i60jykc" path="res://Arte/iconos/PAPELERA.png" id="6_2txjg"]
+[ext_resource type="Texture2D" uid="uid://chlk52j0nd6wn" path="res://Arte/iconos/EXPLORER.png" id="7_0i0i3"]
+[ext_resource type="Texture2D" uid="uid://ba1cwipodcvce" path="res://Arte/iconos/BARRA.png" id="8_7jg3q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f8hvr"]
+shader = ExtResource("1_mtgok")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+shader_parameter/intensity = 0.5
+
+[node name="FinalScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dedjb")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1112.0
+offset_bottom = 607.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_5jo0d")
+metadata/_edit_lock_ = true
+
+[node name="FOLDER" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 16.0
+offset_right = 1088.0
+offset_bottom = 1040.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("3_gry6x")
+
+[node name="MSN" type="TextureButton" parent="Fondo"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 9.000008
+offset_top = 128.0
+offset_right = 1033.0
+offset_bottom = 1152.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_4rpxs")
+texture_pressed = ExtResource("4_4rpxs")
+texture_hover = ExtResource("4_4rpxs")
+texture_disabled = ExtResource("4_4rpxs")
+texture_focused = ExtResource("4_4rpxs")
+
+[node name="MUSIC" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 67.0
+offset_right = 1032.0
+offset_bottom = 1091.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("5_r1ixm")
+
+[node name="PAPELERA" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 15.0
+offset_right = 1032.0
+offset_bottom = 1039.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("6_2txjg")
+
+[node name="EXPLORER" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 185.0
+offset_right = 1034.0
+offset_bottom = 1209.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("7_0i0i3")
+
+[node name="BARRA" type="TextureRect" parent="Fondo"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -37.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("8_7jg3q")
+
+[node name="GlitchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dedjb")
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 1152.0
+offset_bottom = 649.0
+mouse_filter = 2
+stream = ExtResource("3_l2qok")
+expand = true
+metadata/_edit_lock_ = true
+
+[node name="GlitchLayer" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_f8hvr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1113.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true

@@ -1,0 +1,202 @@
+[gd_scene load_steps=15 format=3 uid="uid://c5rbigd4edunp"]
+
+[ext_resource type="Script" uid="uid://dnentlejntcw0" path="res://script/intro_scene.gd" id="1_mq4i6"]
+[ext_resource type="PackedScene" uid="uid://bo14wvt7xls4v" path="res://escenas/world_dialogue_bubble.tscn" id="2_6lb4e"]
+[ext_resource type="Texture2D" uid="uid://coy84q3wia2vi" path="res://Arte/iconos/FONDO.jpg" id="2_y4vhb"]
+[ext_resource type="Texture2D" uid="uid://wuf0mysv2vvl" path="res://Arte/iconos/FOLDER.png" id="3_cyco3"]
+[ext_resource type="Texture2D" uid="uid://cgbo2bm38rjsf" path="res://Arte/iconos/MSM.png" id="4_oln0m"]
+[ext_resource type="Texture2D" uid="uid://s3ajouq86np" path="res://Arte/iconos/MUSIC.png" id="5_hhjwp"]
+[ext_resource type="Texture2D" uid="uid://bkr6a8i60jykc" path="res://Arte/iconos/PAPELERA.png" id="6_8330k"]
+[ext_resource type="Texture2D" uid="uid://chlk52j0nd6wn" path="res://Arte/iconos/EXPLORER.png" id="7_fqm8b"]
+[ext_resource type="Texture2D" uid="uid://ba1cwipodcvce" path="res://Arte/iconos/BARRA.png" id="8_6slww"]
+[ext_resource type="Shader" uid="uid://ckcw4ttw0b6xw" path="res://script/intro_scene.gdshader" id="9_oln0m"]
+[ext_resource type="FontFile" uid="uid://corkiu5g4nqgq" path="res://connection_ii/ConnectionII.otf" id="11_hhjwp"]
+[ext_resource type="AudioStream" uid="uid://bfyrnmh1x0wfq" path="res://Arte/Sonidos/Intro.mp3" id="12_8330k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lb4e"]
+bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.8235294)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hhjwp"]
+shader = ExtResource("9_oln0m")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+shader_parameter/intensity = 0.5
+
+[node name="IntroScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mq4i6")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1112.0
+offset_bottom = 607.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_y4vhb")
+metadata/_edit_lock_ = true
+
+[node name="FOLDER" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 16.0
+offset_right = 1088.0
+offset_bottom = 1040.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("3_cyco3")
+
+[node name="MSN" type="TextureButton" parent="Fondo"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 9.000008
+offset_top = 128.0
+offset_right = 1033.0
+offset_bottom = 1152.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_oln0m")
+texture_pressed = ExtResource("4_oln0m")
+texture_hover = ExtResource("4_oln0m")
+texture_disabled = ExtResource("4_oln0m")
+texture_focused = ExtResource("4_oln0m")
+
+[node name="MUSIC" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 67.0
+offset_right = 1032.0
+offset_bottom = 1091.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("5_hhjwp")
+
+[node name="PAPELERA" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 15.0
+offset_right = 1032.0
+offset_bottom = 1039.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("6_8330k")
+
+[node name="EXPLORER" type="TextureRect" parent="Fondo"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 185.0
+offset_right = 1034.0
+offset_bottom = 1209.0
+scale = Vector2(0.039999574, 0.039999552)
+mouse_filter = 2
+texture = ExtResource("7_fqm8b")
+
+[node name="BARRA" type="TextureRect" parent="Fondo"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -37.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("8_6slww")
+
+[node name="LoginScreen" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 647.0
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 10
+
+[node name="WorldDialogueBubble" parent="CanvasLayer" instance=ExtResource("2_6lb4e")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -103.0
+offset_right = 0.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6lb4e")
+
+[node name="Shader" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Shader"]
+material = SubResource("ShaderMaterial_hhjwp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="PreIntroLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="PreIntroLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="InfoText" type="Label" parent="PreIntroLayer/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -10.0
+offset_right = 0.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_hhjwp")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8330k")
+autoplay = true

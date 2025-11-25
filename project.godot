@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Nuevo Proyecto de Juego"
-run/main_scene="uid://b10brwhev65l4"
+run/main_scene="uid://d28hidgn440wi"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,8 +25,7 @@ runtime/balloon_path="res://escenas/balloon.tscn"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
@@ -34,4 +33,4 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/mi_chat.dialogue", "res://dialogue/mi_chat_2.dialogue", "res://dialogue/world_dialogue.dialogue", "res://dialogue/cinematic_dialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/mi_chat.dialogue", "res://dialogue/mi_chat_2.dialogue", "res://dialogue/world_dialogue.dialogue", "res://dialogue/chica_desconocida.dialogue")

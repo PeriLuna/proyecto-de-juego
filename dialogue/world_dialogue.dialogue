@@ -1,13 +1,13 @@
-# Archivo: world_dialogue.dialogue
+# ... (otros pensamientos) ...
 
-~ intro_juego
-Player: (Tengo que revisar qué pasó anoche...)
-
-~ mirar_ventana
-Narrador: El sol apenas empieza a salir. La calle está vacía.
-
-~ intentar_puerta_cerrada
-Player: (Está cerrada con llave. Necesito encontrarla.)
-
-~ encender_pc
-Player: Voy a encender la compu...
+~ intro_pc_1
+Player: ¿Qué le pasa a la computadora?
+=> intro_pc_2
+~ intro_pc_2
+Player: No me responde nada. Ni el Mouse, ni el teclado ¿Qué carajos?
+=> intro_pc_3
+~ intro_pc_3
+Player: Pero daaalee...
+~ pensamiento_y_esta
+Player: (¿Y esta? ¿De dónde salió?)
+=> END
